@@ -1,0 +1,1375 @@
+﻿
+@{
+    ViewBag.Title = "Portfolio";
+}
+
+<h2>Portfolio</h2>
+
+<section class="section js-exercises" id="js-exercises">
+    <div class="container">
+        <h2 class="heading">PORTFOLIO</h2>
+        <h3 class="heading">JavaScript Exercises</h3>
+
+        <!--Place links followed by the modal code w/HTML/JS/JQ code here.-->
+        <br /><br />
+        <div style="padding-left:120px">
+            <table style="width: 100%; vertical-align:top; margin: auto;">
+                <tr>
+                    <td><a href="" data-toggle="modal" data-target="#max" class="btn" style="background-color:#bc341b; color:white"><b>Max of Five</b></a></td>
+                    <td><a href="" data-toggle="modal" data-target="#sum" class="btn" style="background-color:#bc341b; color:white"><b>Sum and Multiply</b></a></td>
+                    <td><a href="" data-toggle="modal" data-target="#fac" class="btn" style="background-color:#bc341b; color:white"><b>Factorial</b></a></td>
+                    <td><a href="" data-toggle="modal" data-target="#pal" class="btn" style="background-color:#bc341b; color:white"><b>Palindrome</b></a></td>
+                </tr>
+                <tr>
+                    <td><a href="" data-toggle="modal" data-target="#fizz" class="btn" style="background-color:#bc341b; color:white"><b>FizzBuzz</b></a></td>
+                    <td><a href="" data-toggle="modal" data-target="#perfect" class="btn" style="background-color:#bc341b; color:white"><b>Perfect Numbers</b></a></td>
+                    <td><a href="" data-toggle="modal" data-target="#happy" class="btn" style="background-color:#bc341b; color:white"><b>Happy Numbers</b></a></td>
+                    <td><a href="" data-toggle="modal" data-target="#arm" class="btn" style="background-color:#bc341b; color:white"><b>Armstrong Numbers</b></a></td>
+                </tr>
+                <tr>
+                    <td><a href="" data-toggle="modal" data-target="#find" class="btn" style="background-color:#bc341b; color:white"><b>Find Largest Word</b></a></td>
+                    <td><a href="" data-toggle="modal" data-target="#filter" class="btn" style="background-color:#bc341b; color:white"><b>Filter Long Words</b></a></td>
+                    <td><a href="" data-toggle="modal" data-target="#wf" class="btn" style="background-color:#bc341b; color:white"><b>Word Frequency</b></a></td>
+                    <td><a href="" data-toggle="modal" data-target="#fw" class="btn" style="background-color:#bc341b; color:white"><b>Find Words</b></a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @*<div class="row project-list">
+                <ul class="project-grid project-effect-shrink">
+                    <li class="col-md-6">
+                        <figure>
+                            <img src="~/assets/img/projects/big-thing-landing-page.png" alt="Big Thing Landing Page" />
+                            <figcaption>
+                                <div class="project-item-info">
+                                    <h3 class="sub-heading">Big Thing Landing Page</h3>
+                                    <p>Progressively pursue visionary functionalities through vertical ROI. Uniquely unleash alternative experiences vis-a-vis.</p>
+                                    <a href="#" class="btn btn-default">View Details</a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="col-md-6">
+                        <figure>
+                            <img src="~/assets/img/projects/tiick-tock-coming-soon-page.png" alt="Tiick Tock Coming Soon Page" />
+                            <figcaption>
+                                <div class="project-item-info">
+                                    <h3 class="sub-heading">Tiick Tock Coming Soon Page</h3>
+                                    <p>Appropriately engage functional potentialities for principle-centered customer service.</p>
+                                    <a href="#" class="btn btn-default">View Details</a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
+        </div>*@
+</section>
+
+<div class="modal fade" id="max" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel1">Max of Five</h1>
+            </div>
+            <div class="modal-body col-sm-12">
+                <script>
+                    function maxOfFive() {
+                        var c = parseFloat($("#q").val());
+                        var d = parseFloat($("#r").val());
+                        var e = parseFloat($("#s").val());
+                        var f = parseFloat($("#t").val());
+                        var g = parseFloat($("#u").val());
+                        var a = [c, d, e, f, g];
+                        var max = a[0];
+                        for (x = 1; x <= 4; x++)
+                            if ((max < a[x]) || isNaN(max))
+                                max = a[x];
+                        if (isNaN(max))
+                            max = " ";
+                        $("#output").text(max);
+                    }
+                </script>
+
+                <p>
+                    First number: <br>
+                    <input type="number" id="q"> <br>
+                    Second number: <br>
+                    <input type="number" id="r"> <br>
+                    Third number: <br>
+                    <input type="number" id="s"> <br>
+                    Fourth number: <br>
+                    <input type="number" id="t"> <br>
+                    Fifth number: <br>
+                    <input type="number" id="u"> <br>
+                    <button onclick="maxOfFive()">Submit</button>
+
+                </p>
+
+
+                <p> The highest number is: <span id="output"> </span></p>
+
+                <pre class="brush: js text">
+function maxOfFive() {
+        var c = parseFloat($("#q").val());
+        var d = parseFloat($("#r").val());
+        var e = parseFloat($("#s").val());
+        var f = parseFloat($("#t").val());
+        var g = parseFloat($("#u").val());
+        var a = [c, d, e, f, g];
+        var max = a[0];
+        for (x = 1; x <= 4; x++)
+        if ((max < a[x]) || isNaN(max))
+            max = a[x];
+        if (isNaN(max))
+        max = " ";
+        $("#output").text(max);
+}
+                            </pre>
+            </div>
+            <div class="modal-footer no-margin">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sum" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel2">Sum and Multiply</h1>
+            </div>
+            <div class="modal-body col-sm-12">
+                <p>
+                    Please enter a number or series of numbers separated by commas.<br>
+                    <textarea id="ip2"> </textarea>
+                </p>
+
+                <p>
+                    <input type="button" value="Add" onclick="sum()">
+                    <input type="button" value="Multiply" onclick="multiply()">
+                </p>
+
+                <p id="op2">
+
+                </p>
+
+                <script>
+                    function readText2() {
+                        var ri = $("#ip2").val();
+                        var series = ri.split(",");
+                        var sl = series.length - 1;
+                        var flag = 0;
+                        for (x = 0; x <= sl; x++) {
+                            series[x] = parseFloat(series[x]);
+                            if (isNaN(series[x]))
+                                flag = 1;
+                        }
+                        var package = [flag, sl, series];
+                        return package;
+                    }
+                    function writeText2(f, rtype, r) {
+                        if (f == 1)
+                            ops2 = "The input is invalid. Please enter only numbers (separated by commas).";
+                        else
+                            ops2 = "The " + rtype + " is " + String(r) + ".";
+                        $("#op2").text(ops2);
+                    }
+                    function sum() {
+                        var resulttype = "sum";
+                        var sumres = 0;
+                        var pack = readText2();
+                        var fl = pack[0];
+                        var ls = pack[1];
+                        var list = pack[2];
+                        if (fl == 0)
+                            for (x = 0; x <= ls; x++)
+                                sumres += list[x];
+                        writeText2(fl, resulttype, sumres);
+                    }
+                    function multiply() {
+                        var resulttype = "product";
+                        var prodres = 1;
+                        var pack = readText2();
+                        var fl = pack[0];
+                        var ls = pack[1];
+                        var list = pack[2];
+                        if (fl == 0)
+                            for (x = 0; x <= ls; x++)
+                                prodres *= list[x];
+                        writeText2(fl, resulttype, prodres);
+                    }
+                </script>
+
+                <pre class="brush: js text">
+function readText2() {
+    var ri = $("#ip2").val();
+    var series = ri.split(",");
+    var sl = series.length - 1;
+    var flag = 0;
+    for (x = 0; x <= sl; x++) {
+        series[x] = parseFloat(series[x]);
+        if (isNaN(series[x]))
+            flag = 1;
+    }
+    var package = [flag, sl, series];
+    return package;
+}
+function writeText2(f, rtype, r) {
+    if (f == 1)
+        ops2 = "The input is invalid. Please enter only numbers (separated by commas).";
+    else
+        ops2 = "The " + rtype + " is " + String(r) + ".";
+    $("#op2").text(ops2);
+}
+function sum() {
+    var resulttype = "sum";
+    var sumres = 0;
+    var pack = readText2();
+    var fl = pack[0];
+    var ls = pack[1];
+    var list = pack[2];
+    if (fl == 0)
+        for (x = 0; x <= ls; x++)
+            sumres += list[x];
+    writeText2(fl, resulttype, sumres);
+}
+function multiply() {
+    var resulttype = "product";
+    var prodres = 1;
+    var pack = readText2();
+    var fl = pack[0];
+    var ls = pack[1];
+    var list = pack[2];
+    if (fl == 0)
+        for (x = 0; x <= ls; x++)
+            prodres *= list[x];
+    writeText2(fl, resulttype, prodres);
+}
+                            </pre>
+
+            </div>
+            <div class="modal-footer no-margin">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="fac" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel3">Factorial</h1>
+            </div>
+            <div class="modal-body col-sm-12">
+                <p>
+                    A factorial is of a positive integer, and is calculated by multiplying all positive integers leading up to and including a given positive integer.
+                    <br /><br />
+                    For example, the factorial of 4 is: 4! = 4 x 3 x 2 x 1 =  24. <br> <br>
+                    Please enter a positive integer to get its factorial.<br>
+                    <input type="number" id="ip3">
+                </p>
+
+                <p>
+                    <input type="button" value="Submit" onclick="factorial()">
+                </p>
+
+
+
+                <p id="op3">
+
+                </p>
+
+
+                <script>
+                    function readText3() {
+                        flag = 0;
+                        var num = parseFloat($("#ip3").val());
+                        if (isNaN(num) || (num < 1) || (num != Math.floor(num)))
+                            flag = 1;
+                        var package = [flag, num];
+                        return package;
+                    }
+
+                    function writeText3(f, number, fac) {
+                        if (f == 1)
+                            ops3 = "The input is invalid. Please enter a positive integer only.";
+                        else {
+                            ops3 = "The factorial of " + String(number) + " is " + String(fac) + ".";
+                        }
+                        $("#op3").text(ops3);
+                    }
+
+                    function factorial() {
+                        var pack = readText3();
+                        var fl = pack[0];
+                        var n = pack[1];
+                        if (fl == 0) {
+                            var result = 1;
+                            for (x = 1; x <= n; x++)
+                                result *= x;
+                        }
+                        writeText3(fl, n, result);
+                    }
+
+                </script>
+
+                <pre class="brush: js text">
+function readText3() {
+    flag = 0;
+    var num = parseFloat($("#ip3").val());
+    if (isNaN(num) || (num < 1) || (num != Math.floor(num)))
+        flag = 1;
+    var package = [flag, num];
+    return package;
+}
+function writeText3(f, number, fac) {
+    if (f == 1)
+        ops3 = "The input is invalid. Please enter a positive integer only.";
+    else {
+        ops3 = "The factorial of " + String(number) + " is " + String(fac) + ".";
+    }
+    $("#op3").text(ops3);
+}
+function factorial() {
+    var pack = readText3();
+    var fl = pack[0];
+    var n = pack[1];
+    if (fl == 0) {
+        var result = 1;
+        for (x = 1; x <= n; x++)
+            result *= x;
+    }
+    writeText3(fl, n, result);
+}
+                                </pre>
+
+
+            </div>
+            <div class="modal-footer no-margin">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="pal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel4">Palindrome</h1>
+            </div>
+            <div class="modal-body col-sm-12">
+                <p>
+                    A palindrome is a string, such as &ldquo;level&rdquo;, that is spelled the same way forward and backward.
+                    <br> <br>
+                    Please enter a string to determine if it is a palindrome.<br>
+                    <textarea id="ip4"> </textarea>
+                </p>
+
+                <p>
+                    <button onclick="palindrome()">Submit</button>
+                </p>
+
+                <p>
+                    True or False: This string is a palindrome. <br>
+                    <span id="op4"> </span>
+                </p>
+
+                <script>
+                    function palindrome() {
+                        var instr = $("#ip4").val();
+                        var rev = "";
+                        var len = instr.length - 1;
+                        for (x = len; x >= 0; x--)
+                            rev += instr.charAt(x);
+                        result = (instr == rev);
+                        $("#op4").text(String(result).toUpperCase());
+                    }
+                </script>
+
+                <pre class="brush: js text">
+function palindrome() {
+    var instr = $("#ip4").val();
+    var rev = "";
+    var len = instr.length - 1;
+    for (x = len; x >= 0; x--)
+        rev += instr.charAt(x);
+    result = (instr == rev);
+    $("#op4").text(String(result).toUpperCase());
+}
+                                </pre>
+
+            </div>
+            <div class="modal-footer no-margin">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="fizz" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel5">FizzBuzz</h1>
+            </div>
+            <div class="modal-body col-sm-12">
+                <p>
+                    This program will display the integers from 1 to 100, substituting &rdquo;Fizz&rdquo; for multiples of 3,
+                    &rdquo;Buzz&ldquo; for multiples of 5, and &rdquo;FizzBuzz&rdquo; for multiples 3 <i>and</i> 5. <br>
+                    <br>
+                    Click to display.
+                </p>
+
+                <p>
+                    <button onclick="fizzBuzz()">Click Me</button>
+                </p>
+
+                <p id="op5" style="white-space: pre-wrap"> </p>
+
+                <script>
+                    function fizzBuzz() {
+                        var output5 = "";
+                        for (x5 = 1; x5 <= 100; x5++) {
+                            result5 = "";
+                            if (x5 % 3 == 0)
+                                result5 = "Fizz";
+                            if (x5 % 5 == 0)
+                                result5 += "Buzz";
+                            if (result5 == "")
+                                result5 = String(x5);
+                            result5 += "      ";
+                            output5 += result5;
+                        }
+                        $("#op5").text(output5);
+                    }
+                </script>
+
+                <pre class="brush: js text">
+function fizzBuzz() {
+    var output5 = "";
+    for (x5 = 1; x5 <= 100; x5++) {
+        result5 = "";
+        if (x5 % 3 == 0)
+            result5 = "Fizz";
+        if (x5 % 5 == 0)
+            result5 += "Buzz";
+        if (result5 == "")
+            result5 = String(x5);
+        result5 += "      ";
+        output5 += result5;
+    }
+    $("#op5").text(output5);
+}
+                            </pre>
+            </div>
+            <div class="modal-footer no-margin">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="perfect" tabindex="-1" role="dialog" aria-labelledby="myModalLabel6" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel6">Perfect Numbers</h1>
+            </div>
+            <div class="modal-body col-sm-12">
+                <p>
+                    A &ldquo;perfect number&rdquo; is a positive integer that is the sum of its positive divisors, excluding itself. <br>
+                    <br />
+                    For example, 6, which is the sum of its divisors 1, 2, and 3, is a perfect number.
+                    <br><br>
+                    Please choose one of the following.
+                </p>
+
+                <p>
+                    <input type="button" value="Determine if a number is perfect" onclick="perfectNumIO()">
+                    <input type="button" value="Display perfect numbers from 1 to 10,000" onclick="displayPerfects()">
+                </p>
+                <br>
+                <br>
+
+                <p id="op6" style="white-space: pre-wrap">
+
+                </p>
+
+
+
+                <script>
+                    function perfectNumIO() {
+                        var flag = 1;
+                        var ip6;
+                        var x;
+                        var error = "";
+                        var stringmod = "";
+                        var ops6;
+                        while (flag == 1) {
+                            ip6 = prompt(error + "Please enter a number.");
+                            if (["", null].indexOf(ip6) > -1)
+                                //error = "";
+                                break;
+                            var error = "The input is invalid. ";
+                            var x = parseFloat(ip6);
+                            if (!isNaN(x))
+                                flag = 0;
+                        }
+                        if (["", null].indexOf(ip6) > -1)
+                            return;
+                        if (isPerfect(x) == false)
+                            stringmod = " not";
+                        ops6 = ip6 + " is";
+                        ops6 += stringmod;
+                        ops6 += " a perfect number.";
+                        $("#op6").text(ops6);
+                    }
+
+                    function isPerfect(num) {
+                        if ((num < 6) || (num % Math.floor(num) != 0))
+                            return false;
+                        var sum = 1;
+                        var upper = Math.floor(num / 2);
+                        for (var counter = 2; counter <= upper; counter++) {
+                            if (num % counter == 0) {
+                                sum += counter;
+                                var quotient = num / counter;
+                                if (quotient != counter)
+                                    sum += quotient;
+                                upper = quotient - 1;
+                            }
+                        }
+                        if (num == sum)
+                            return true;
+                        else
+                            return false;
+                    }
+
+                    function displayPerfects() {
+                        var ops6 = "";
+                        for (n = 1; n <= 10000; n++)
+                            if (isPerfect(n))
+                                ops6 = ops6 + String(n) + "   ";
+                        $("#op6").text(ops6);
+                    }
+
+
+                </script>
+
+                <pre class="brush: js text">
+function perfectNumIO() {
+var flag = 1;
+var ip6;
+var x;
+var error = "";
+var stringmod = "";
+var ops6;
+while (flag == 1) {
+    ip6 = prompt(error + "Please enter a number.");
+    if (["", null].indexOf(ip6) > -1)
+        //error = "";
+        break;
+    var error = "The input is invalid. ";
+    var x = parseFloat(ip6);
+    if (!isNaN(x))
+        flag = 0;
+}
+if (["", null].indexOf(ip6) > -1)
+    return;
+if (isPerfect(x) == false)
+    stringmod = " not";
+ops6 = ip6 + " is";
+ops6 += stringmod;
+ops6 += " a perfect number.";
+$("#op6").text(ops6);
+}
+function isPerfect(num) {
+if ((num < 6) || (num % Math.floor(num) != 0))
+    return false;
+var sum = 1;
+var upper = Math.floor(num / 2);
+for (var counter = 2; counter <= upper; counter++) {
+    if (num % counter == 0) {
+        sum += counter;
+        var quotient = num / counter;
+        if (quotient != counter)
+            sum += quotient;
+        upper = quotient - 1;
+    }
+}
+if (num == sum)
+    return true;
+else
+    return false;
+}
+function displayPerfects() {
+var ops6 = "";
+for (n = 1; n <= 10000; n++)
+    if (isPerfect(n))
+        ops6 = ops6 + String(n) + "   ";
+$("#op6").text(ops6);
+}
+                            </pre>
+
+
+            </div>
+            <div class="modal-footer no-margin">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="happy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel7" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel7">Happy Numbers</h1>
+            </div>
+            <div class="modal-body col-sm-12">
+                <p>
+                    A Happy Number is one that can be reduced to 1 by replacing it with the sum of the square of its digits,
+                    replacing that with the sum of the square of its own digits, etc., until the result is 1.
+                    <br><br>
+                    Click the button to display the first five Happy Numbers.
+                </p>
+                <p>
+                    <input type="button" value="Click Me" onclick="displayHappyNums()">
+                </p>
+
+                <p id="op7" style="white-space: pre-wrap">
+
+                </p>
+
+                <script>
+                    function isHappy(num) {
+                        function countInstances(chr, str) {
+                            var result = 0;
+                            for (x = 0; x <= str.length; x++) {
+                                if (str.charAt(x) == chr)
+                                    result++
+                            }
+                            return result;
+                        }
+                        if (num == 1)
+                            return true;
+                        if ((num % 10 == 0) & countInstances("1", String(num)) == 1)
+                            return true;
+                        var sadends = [4, 16, 37, 58, 89, 145, 42, 20];
+                        var digit = 0;
+                        var smsq = 0;
+                        var numc = num;
+                        while (2 == 2) {
+                            while (numc > 0) {
+                                digit = numc % 10;
+                                smsq += digit * digit;
+                                numc = (numc - digit) / 10;
+                            }
+                            if (smsq == 1)
+                                return true;
+                            if (sadends.indexOf(smsq) > -1)
+                                return false;
+                            numc = smsq;
+                            smsq = 0;
+                        }
+                    }
+
+                    function displayHappyNums() {
+                        var count = 0;
+                        var ops7 = "";
+                        for (var n = 1; 2 == 2; n++) {
+                            if (isHappy(n)) {
+                                ops7 = ops7 + String(n) + "   ";
+                                count++;
+                            }
+                            if (count == 5)
+                                break;
+                        }
+                        $("#op7").text(ops7);
+                    }
+                </script>
+
+                <pre class="brush: js text">
+function isHappy(num) {
+    function countInstances(chr, str) {
+        var result = 0;
+        for (x = 0; x <= str.length; x++) {
+            if (str.charAt(x) == chr)
+                result++
+        }
+        return result;
+    }
+    if (num == 1)
+        return true;
+    if ((num % 10 == 0) & countInstances("1", String(num)) == 1)
+        return true;
+    var sadends = [4, 16, 37, 58, 89, 145, 42, 20];
+    var digit = 0;
+    var smsq = 0;
+    var numc = num;
+    while (2 == 2) {
+        while (numc > 0) {
+            digit = numc % 10;
+            smsq += digit * digit;
+            numc = (numc - digit) / 10;
+        }
+        if (smsq == 1)
+            return true;
+        if (sadends.indexOf(smsq) > -1)
+            return false;
+        numc = smsq;
+        smsq = 0;
+    }
+}
+function displayHappyNums() {
+    var count = 0;
+    var ops7 = "";
+    for (var n = 1; 2 == 2; n++) {
+        if (isHappy(n)) {
+            ops7 = ops7 + String(n) + "   ";
+            count++;
+        }
+        if (count == 5)
+            break;
+    }
+    $("#op7").text(ops7);
+}
+                                </pre>
+
+
+            </div>
+            <div class="modal-footer no-margin">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="arm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel8" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel8">Armstrong Numbers</h1>
+            </div>
+            <div class="modal-body col-sm-12">
+                <p>
+                    An Armstrong number is a positive integer that is the sum of each of its digits raised to the power of the number of its digits.
+                    <br><br>
+                    For example, 371 is an Armstrong number, since 3<sup>3</sup> + 7<sup>3</sup> + 1<sup>3</sup> = 371.
+                    <br>
+                    <br>
+                    Click the button to display all three-digit Armstrong Numbers.
+                </p>
+                <p>
+                    <input type="button" value="Click Me" onclick="disp3DigArmstrong()">
+                </p>
+
+                <p id="op8" style="white-space: pre-wrap">
+
+                </p>
+
+
+                <script>
+                    function disp3DigArmstrong() {
+                        var ops8 = "";
+                        for (hundreds = 1; hundreds <= 9; hundreds++)
+                            for (tens = 0; tens <= 9; tens++)
+                                for (ones = 0; ones <= 9; ones++) {
+                                    var num = hundreds * 100 + tens * 10 + ones;
+                                    var cubedsum = Math.pow(hundreds, 3) + Math.pow(tens, 3) + Math.pow(ones, 3);
+                                    if (num == cubedsum)
+                                        ops8 = ops8 + String(num) + "   ";
+                                }
+                        $("#op8").text(ops8);
+                    }
+                </script>
+
+                <pre class="brush: js text">
+function disp3DigArmstrong() {
+var ops8 = "";
+for (hundreds = 1; hundreds <= 9; hundreds++)
+    for (tens = 0; tens <= 9; tens++)
+        for (ones = 0; ones <= 9; ones++) {
+            var num = hundreds * 100 + tens * 10 + ones;
+            var cubedsum = Math.pow(hundreds, 3) + Math.pow(tens, 3) + Math.pow(ones, 3);
+            if (num == cubedsum)
+                ops8 = ops8 + String(num) + "   ";
+        }
+$("#op8").text(ops8);
+}
+                                </pre>
+
+
+            </div>
+
+            <div class="modal-footer no-margin">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="find" tabindex="-1" role="dialog" aria-labelledby="myModalLabel9" aria-hidden="true">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel9">Find Largest Word</h1>
+            </div>
+            <div class="modal-body col-sm-12">
+                <p>
+                    <button type="button" onclick="findLargestWord()" id="ip9"> Click to begin </button>
+                </p>
+
+                <form>
+                    <input type="file" id="fileinput9">
+                </form>
+
+
+                <p> The largest word in the file is: </p>
+
+                <p id="op9">
+
+
+
+
+                </p>
+                <script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>
+                <script>
+                    function findLargestWord() {
+                        $(document).ready(function () {
+                            function readFile(evt) {    		//evt is the 'change' event object in this context
+                                var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
+                                if (f) {
+                                    var r = new FileReader();	//FileReader object
+
+                                    //Defining the function it is executed once .readAsText() calls it after that has finish executing
+                                    r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
+                                        alert(r.result);
+                                        var filetext = r.result;
+                                        var wordarray = filetext.split(/\W/);
+                                        var largestword = "";
+                                        for (var index in wordarray) {
+                                            word = wordarray[index];
+                                            if (word.length > largestword.length)
+                                                largestword = word;
+                                        }
+                                        $("#op9").text(largestword);
+                                    }
+                                    //Reads the file as text and then calls the function the onload is linked to
+                                    r.readAsText(f);
+                                }
+                                else
+                                    alert("Failed to load file");
+                            }
+                            function display9() {
+                                $("#fileinput9").show("slow");
+                                $("#ip9").hide();
+                            }
+                            $("#ip9").click(display9());
+                            $("#fileinput9").change(readFile);
+                        })
+                    }
+                    $("#fileinput9").hide();
+                </script>
+                <pre class="brush: js text">
+function findLargestWord() {
+    $(document).ready(function () {
+        function readFile(evt) {    		//evt is the 'change' event object in this context
+            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
+            if (f) {
+                var r = new FileReader();	//FileReader object
+                //Defining the function it is executed once .readAsText() calls it after that has finish executing
+                r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
+                    alert(r.result);
+                    var filetext = r.result;
+                    var wordarray = filetext.split(/\W/);
+                    var largestword = "";
+                    for (var index in wordarray) {
+                        word = wordarray[index];
+                        if (word.length > largestword.length)
+                            largestword = word;
+                    }
+                    $("#op9").text(largestword);
+                }
+                //Reads the file as text and then calls the function the onload is linked to
+                r.readAsText(f);
+            }
+            else
+                alert("Failed to load file");
+        }
+        function display9() {
+            $("#fileinput9").show("slow");
+            $("#ip9").hide();
+        }
+        $("#ip9").click(display9());
+        $("#fileinput9").change(readFile);
+    })
+}
+$("#fileinput9").hide();
+                                </pre>
+
+            </div>
+            <div class="modal-footer no-margin">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="filter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel10">Filter Long Words</h1>
+            </div>
+            <div class="modal-body col-sm-12">
+                <p>
+                    <button type="button" onclick="filterLongWords()" id="ip10"> Click to begin </button>
+                </p>
+
+
+                <form>
+                    <input type="file" id="fileinput10">
+                </form>
+
+                <p id="op10">
+
+                </p>
+
+                <p id="op10b" style="white-space: pre-line">
+
+                </p>
+
+                <script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>
+                <script>
+                    function filterLongWords() {				//Unfinished--continue editing.
+                        $(document).ready(function () {
+                            function readFile(evt) {    		//evt is the 'change' event object in this context
+                                var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
+                                if (f) {
+                                    var r = new FileReader();	//FileReader object
+                                    //Defining the function it, is executed once .readAsText() calls it after that has finish executing
+                                    r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
+                                        alert(r.result);
+                                        var filetext = r.result;
+                                        var wordarray = filetext.split(/\W/);
+                                        var minlen = "";
+                                        var flag = false;
+                                        while (isNaN(minlen) || (minlen < 1) || (minlen != Math.floor(minlen))) {
+                                            if (flag)
+                                                alert("The input is invalid. Please enter a positive integer only.");
+                                            minlen = prompt("Please enter the minimum word length sought.");
+                                            flag = true;
+                                        }
+                                        var filteredwords = [];
+                                        for (var index in wordarray) {
+                                            word = wordarray[index];
+                                            if (word.length >= minlen)
+                                                filteredwords.push(" " + word);
+                                        }
+                                        var ops10 = "The words in the file at least " + String(minlen) + " characters in length are the following.";
+                                        $("#op10").text(ops10);
+                                        $("#op10b").text(filteredwords);
+                                    }
+                                    //Reads the file as text and then calls the function the onload is linked to
+                                    r.readAsText(f);
+                                }
+                                else
+                                    alert("Failed to load file");
+                            }
+                            function display10() {
+                                $("#fileinput10").show("slow");
+                                $("#ip10").hide();
+                            }
+                            $("#ip10").click(display10());
+                            $("#fileinput10").change(readFile);
+                        })
+                    }
+                    $("#fileinput10").hide();
+                </script>
+
+                <pre class="brush: js text">
+function filterLongWords() {				//Unfinished--continue editing.
+    $(document).ready(function () {
+        function readFile(evt) {    		//evt is the 'change' event object in this context
+            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
+            if (f) {
+                var r = new FileReader();	//FileReader object
+                //Defining the function it, is executed once .readAsText() calls it after that has finish executing
+                r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
+                    alert(r.result);
+                    var filetext = r.result;
+                    var wordarray = filetext.split(/\W/);
+                    var minlen = "";
+                    var flag = false;
+                    while (isNaN(minlen) || (minlen < 1) || (minlen != Math.floor(minlen))) {
+                        if (flag)
+                            alert("The input is invalid. Please enter a positive integer only.");
+                        minlen = prompt("Please enter the minimum word length sought.");
+                        flag = true;
+                    }
+                    var filteredwords = [];
+                    for (var index in wordarray) {
+                        word = wordarray[index];
+                        if (word.length >= minlen)
+                            filteredwords.push(" " + word);
+                    }
+                    var ops10 = "The words in the file at least " + String(minlen) + " characters in length are the following.";
+                    $("#op10").text(ops10);
+                    $("#op10b").text(filteredwords);
+                }
+                //Reads the file as text and then calls the function the onload is linked to
+                r.readAsText(f);
+            }
+            else
+                alert("Failed to load file");
+        }
+        function display10() {
+            $("#fileinput10").show("slow");
+            $("#ip10").hide();
+        }
+        $("#ip10").click(display10());
+        $("#fileinput10").change(readFile);
+    })
+}
+$("#fileinput10").hide();
+                                </pre>
+            </div>
+            <div class="modal-footer no-margin">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="wf" tabindex="-1" role="dialog" aria-labelledby="myModalLabel11" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel11">Word Frequency</h1>
+            </div>
+            <div class="modal-body col-sm-12">
+                <p>
+                    <button type="button" onclick="wordFreq()" id="ip11"> Click to begin </button>
+                </p>
+
+                <form>
+                    <input type="file" id="fileinput11">
+                </form>
+
+
+
+                <p
+
+                <p id="op11">
+
+                </p>
+
+
+                <script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>
+                <script>
+                    function wordFreq() {
+                        $(document).ready(function () {
+                            function readFile(evt) {    		//evt is the 'change' event object in this context
+                                var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
+                                if (f) {
+                                    var r = new FileReader();	//FileReader object
+                                    //Defining the function it, is executed once .readAsText() calls it after that has finish executing
+                                    r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
+                                        alert(r.result);
+                                        var filetext = r.result;
+                                        var wordarray = filetext.split(/\W/);
+                                        var filewords = [];
+                                        var wordcount = [];
+                                        for (var index in wordarray) {
+                                            var word = wordarray[index].toUpperCase();
+                                            var present = false;
+                                            for (var i = 0; i < filewords.length; i++) {
+                                                if (word.length > 0) {
+                                                    if (word == filewords[i]) {
+                                                        present = true;
+                                                        wordcount[i]++;
+                                                        break;
+                                                    }
+                                                }
+                                            }
+                                            if (!present) {
+                                                if (word.length > 0) {
+                                                    filewords.push(word);
+                                                    wordcount.push(1);
+                                                }
+                                            }
+                                        }
+                                        var switched;
+                                        do {
+                                            switched = false;
+                                            for (i2 = 0; i2 < wordcount.length - 1; i2++) {
+                                                if (wordcount[i2] > wordcount[i2 + 1]) {
+                                                    var wctemp = wordcount[i2];
+                                                    wordcount[i2] = wordcount[i2 + 1];
+                                                    wordcount[i2 + 1] = wctemp;
+                                                    var fwtemp = filewords[i2];
+                                                    filewords[i2] = filewords[i2 + 1];
+                                                    filewords[i2 + 1] = fwtemp;
+                                                    switched = true;
+                                                }
+                                            }
+                                        } while (switched);
+                                        var msg = "The words in the file and their frequencies are as follows: <br><br>";
+                                        for (var i4 = 0; i4 < wordcount.length; i4++) {
+                                            tword = wordcount[i4] == 1 ? " time" : " times";
+                                            msg += "The word '" + filewords[i4] + "' appears " + wordcount[i4] + tword + ". <br>";
+                                        }
+                                        document.getElementById("op11").innerHTML = msg;
+                                    }
+                                    //Reads the file as text and then calls the function the onload is linked to
+                                    r.readAsText(f);
+                                }
+                                else
+                                    alert("Failed to load file");
+                            }
+                            function display11() {
+                                $("#fileinput11").show("slow");
+                                $("#ip11").hide();
+                            }
+                            $("#ip11").click(display11());
+                            $("#fileinput11").change(readFile);
+                        })
+                    }
+                    $("#fileinput11").hide();
+                </script>
+
+                <pre class="brush: js text">
+    function wordFreq() {
+    $(document).ready(function () {
+        function readFile(evt) {    		//evt is the 'change' event object in this context
+            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
+            if (f) {
+                var r = new FileReader();	//FileReader object
+                //Defining the function it, is executed once .readAsText() calls it after that has finish executing
+                r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
+                    alert(r.result);
+                    var filetext = r.result;
+                    var wordarray = filetext.split(/\W/);
+                    var filewords = [];
+                    var wordcount = [];
+                    for (var index in wordarray) {
+                        var word = wordarray[index].toUpperCase();
+                        var present = false;
+                        for (var i = 0; i < filewords.length; i++) {
+                            if (word.length > 0) {
+                                if (word == filewords[i]) {
+                                    present = true;
+                                    wordcount[i]++;
+                                    break;
+                                }
+                            }
+                        }
+                        if (!present) {
+                            if (word.length > 0) {
+                                filewords.push(word);
+                                wordcount.push(1);
+                            }
+                        }
+                    }
+                    var switched;
+                    do {
+                        switched = false;
+                        for (i2 = 0; i2 < wordcount.length - 1; i2++) {
+                            if (wordcount[i2] > wordcount[i2 + 1]) {
+                                var wctemp = wordcount[i2];
+                                wordcount[i2] = wordcount[i2 + 1];
+                                wordcount[i2 + 1] = wctemp;
+                                var fwtemp = filewords[i2];
+                                filewords[i2] = filewords[i2 + 1];
+                                filewords[i2 + 1] = fwtemp;
+                                switched = true;
+                            }
+                        }
+                    } while (switched);
+                    var msg = "The words in the file and their frequencies are as follows: <br><br>";
+                    for (var i4 = 0; i4 < wordcount.length; i4++) {
+                        tword = wordcount[i4] == 1 ? " time" : " times";
+                        msg += "The word '" + filewords[i4] + "' appears " + wordcount[i4] + tword + ". <br>";
+                    }
+                    document.getElementById("op11").innerHTML = msg;
+                }
+                //Reads the file as text and then calls the function the onload is linked to
+                r.readAsText(f);
+            }
+            else
+                alert("Failed to load file");
+        }
+        function display11() {
+            $("#fileinput11").show("slow");
+            $("#ip11").hide();
+        }
+        $("#ip11").click(display11());
+        $("#fileinput11").change(readFile);
+    })
+}
+$("#fileinput11").hide();
+                                </pre>
+            </div>
+            <div class="modal-footer no-margin">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="fw" tabindex="-1" role="dialog" aria-labelledby="myModalLabel12" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="modal-title" id="myModalLabel12">Find Words</h1>
+            </div>
+            <div class="modal-body col-sm-12">
+                <p>
+                    <button type="button" onclick="findWord()" id="ip12"> Click to begin </button>
+                </p>
+
+
+                <form>
+                    <input type="file" id="fileinput12">
+                </form>
+
+
+
+
+
+                <p id="op12">
+
+                </p>
+
+
+                <script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>
+                <script>
+                    function findWord() {
+                        $(document).ready(function () {
+                            function readFile(evt) {    		//evt is the 'change' event object in this context
+                                var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
+                                if (f) {
+                                    var r = new FileReader();	//FileReader object
+                                    //Defining the function it, is executed once .readAsText() calls it after that has finish executing
+                                    r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
+                                        alert(r.result);
+                                        var filetext = r.result;
+                                        var wordarray = filetext.split(/\W/);
+                                        var targetword = prompt("Please enter the word you are seeking.");
+                                        targetword = targetword.toUpperCase();
+                                        var freq = 0;
+                                        for (var index in wordarray) {
+                                            word = wordarray[index];
+                                            if (word.toUpperCase() == targetword)
+                                                freq++;
+                                        }
+                                        tword = "times";
+                                        if (freq == 1)
+                                            tword = "time";
+                                        var ops12 = "The word '" + targetword + "' appears " + String(freq) + " " + tword + " in the file."
+                                        $("#op12").text(ops12);
+                                    }
+                                    //Reads the file as text and then calls the function the onload is linked to
+                                    r.readAsText(f);
+                                }
+                                else
+                                    alert("Failed to load file");
+                            }
+                            function display12() {
+                                $("#fileinput12").show("slow");
+                                $("#ip12").hide();
+                            }
+                            $("#ip12").click(display12());
+                            $("#fileinput12").change(readFile);
+                        })
+                    }
+                    $("#fileinput12").hide();
+                </script>
+
+                <pre class="brush: js text">
+function findWord() {
+    $(document).ready(function () {
+        function readFile(evt) {    		//evt is the 'change' event object in this context
+            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
+            if (f) {
+                var r = new FileReader();	//FileReader object
+                //Defining the function it, is executed once .readAsText() calls it after that has finish executing
+                r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
+                    alert(r.result);
+                    var filetext = r.result;
+                    var wordarray = filetext.split(/\W/);
+                    var targetword = prompt("Please enter the word you are seeking.");
+                    targetword = targetword.toUpperCase();
+                    var freq = 0;
+                    for (var index in wordarray) {
+                        word = wordarray[index];
+                        if (word.toUpperCase() == targetword)
+                            freq++;
+                    }
+                    tword = "times";
+                    if (freq == 1)
+                        tword = "time";
+                    var ops12 = "The word '" + targetword + "' appears " + String(freq) + " " + tword + " in the file."
+                    $("#op12").text(ops12);
+                }
+                //Reads the file as text and then calls the function the onload is linked to
+                r.readAsText(f);
+            }
+            else
+                alert("Failed to load file");
+        }
+        function display12() {
+            $("#fileinput12").show("slow");
+            $("#ip12").hide();
+        }
+        $("#ip12").click(display12());
+        $("#fileinput12").change(readFile);
+    })
+}
+$("#fileinput12").hide();
+                                </pre>
+            </div>
+            <div class="modal-footer no-margin">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+@section scripts {
+    <script>
+        SyntaxHighlighter.all();
+    </script>
+}
+
+

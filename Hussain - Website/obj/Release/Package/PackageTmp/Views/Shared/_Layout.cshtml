@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+    <title>H. Hussain </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Timeline Style CV / Resume / vCard Bootstrap Template.">
+    <meta name="author" content="The Develovers">
+    <!-- CSS -->
+    <link href="~/assets/css/main.css" media="screen, fjection" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/shCore.css" rel="stylesheet" />
+    <link href="~/assets/css/shThemeDefault.css" rel="stylesheet" />
+    <link href="~/assets/css/blog.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+
+</head>
+<body class="bg" background-color: black; data-spy="scroll" data-target="#main-nav">
+    <div class="wrapper">
+        <!-- main navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top" id="main-nav" role="navigation">
+            <div class="container">
+                <!-- brand and toggle -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-nav-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- navigation links -->
+                <div class="collapse navbar-collapse main-nav-collapse">
+                    <ul class="nav navbar-nav">
+                        
+                        <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+                       
+                        <li><a href="@Url.Action("About", "Home")">ABOUT</a></li>
+                       
+                        <li><a href="@Url.Action("Resume", "Home")">RESUME</a></li>                        
+                        
+                        <li><a href="@Url.Action("Portfolio", "Home")">PORTFOLIO</a></li>
+                       
+                        <li><a href="@Url.Action("Contact","Home")">CONTACT</a></li>
+                       
+                        <li>@Html.ActionLink("BLOG", "Index", "Posts")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p style="color: white">&copy; @DateTime.Now.Year - Hammad A. Hussain</p>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/modernizr.js"></script>
+    <script type="text/javascript" src="~/assets/js/jquery.ui.map.full.min.js?ver=3.0"></script>
+    <script type="text/javascript" src="~/assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+    <script type="text/javascript" src="~/assets/js/jquery.localscroll-1.2.7-min.js"></script>
+    <script src="~/assets/js/shCore.js"></script>
+    <script src="~/assets/js/shBrushJScript.js"></script>
+    <script type="text/javascript" src="~/assets/js/main.js"></script>
+    <script src="~/assets/js/tinymce/js/tinymce/tinymce.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

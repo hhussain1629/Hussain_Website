@@ -1,0 +1,21 @@
+﻿img.displayed{
+     display: block;
+     margin-left: auto;
+     margin-right: auto; 
+   }
+
+.blogentry {
+    display:block;
+    border-style: ridge;
+    border-width:20px;
+    border-color: #bc341b;
+    background-color:#f4debe; 
+}
+
+.datestamp {
+    font-size: x-small;
+}
+
+.blogtext {
+    color: ghostwhite;
+}

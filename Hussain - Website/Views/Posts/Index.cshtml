@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Hussain___Website.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+}
+@using PagedList.Mvc;
+
+
+<br /><br /><br />
+@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+{
+    <p class="btn" style="background-color:#bc341b; float: left">
+        @Html.ActionLink("Create New", "Create", "Posts", new { @id = "create" })
+    </p>
+}
+@using (Html.BeginForm("Index", "Posts", new { id = "search" }, FormMethod.Post))
+{
+    <input id="searchStr" name="searchStr" , class="input-sm" type="text" placeholder="Search" style="float:right;" /><br /><br />
+    <button id="searchStr" name="searchStr" class="btn" type="submit" style="float:right;background-color:#bc341b;">
+        Submit
+    </button><br />
+}
+
+
+
+
+<br />
+<h2 style="text-align: center; color: white">My Immersion in Coding</h2>
+<br />
+
+
+
+
+
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="blogentry">
+                <div style="margin-left: 5%; margin-top: 3%">
+                    <p>
+                        @if (item.MediaURL != null)
+                        {
+                            <img src="@Url.Content(item.MediaURL)" />
+                        }
+
+                    </p>
+                    <p class="datestamp">
+                        <span> Created: </span>
+                        @Html.Raw(item.CreationDate.ToString("f"))
+                        @*@Html.DisplayFor(modelItem => item.CreationDate)*@
+                        <br />
+                        @if (item.UpdatedDate != null)
+                        {
+                            <span>Updated:</span>
+                            @Html.Raw(item.UpdatedDate.Value.ToString("f"))
+                        }
+                        @*@Html.DisplayFor(modelItem => item.UpdatedDate)*@
+                    </p>
+                    <p>
+                        @*@Html.DisplayFor(modelItem => item.Title)*@
+                        @Html.ActionLink(item.Title, "Details", new { id = item.Id })
+
+                    </p>
+                    <div>
+                        @*@Html.DisplayFor(modelItem => item.Slug)*@
+                        <div id="wrapper">
+                            @if (Server.HtmlDecode(item.Body).Length > 150)
+                            {
+                                @Html.Raw(Server.HtmlDecode(item.Body).Substring(0, 150) + "...");
+                                @Html.ActionLink("Read more", "Details", new { id = item.Id });
+                                @*@Html.ActionLink(" | Show Comments", "Index", "Comments", new { id = item.Id }, null);*@
+                            }
+                            else
+                            {
+                                @Html.Raw(Server.HtmlDecode(item.Body));
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+}
+
+@*<div>
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>*@
+

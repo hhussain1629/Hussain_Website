@@ -1,0 +1,111 @@
+﻿@model Hussain___Website.Models.Post
+@using Hussain___Website.Models;
+@{
+    ViewBag.Title = "Details";
+}
+
+<br /><br /><br /><br />
+<div class="blogtext">
+    <h4>@Model.Title </h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dd>
+            @Html.Raw(Model.CreationDate.ToString("f"))
+        </dd>
+
+        @if (Model.UpdatedDate != null)
+        {
+
+            <dd class="datestamp">
+                Uptated @Html.Raw(Model.UpdatedDate.Value.ToString("f"))
+                <br /><br />
+            </dd>
+        }
+
+        <dd>
+            @if (Model.MediaURL != null)
+            {
+                <div class="medium">
+                    <img class="displayed" src="@Url.Content(Model.MediaURL)" />
+                </div>
+            }
+        </dd>
+
+        <dd>
+            <br />
+            @Html.Raw(Server.HtmlDecode(Model.Body))
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Edit | ", "Edit", new { id = Model.Id });
+        @Html.ActionLink("Delete | ", "Delete", new { id = Model.Id });
+    }
+        @Html.ActionLink("Add Comment | ", "Create", "Comments", new { id = Model.Id }, null)
+        @Html.ActionLink("Back to Blog List", "Index")
+    
+</p>
+<h3>Comments</h3>
+<table class="table" style="color: white;">
+    @*@<tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Author.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Post.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Body)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Updated)
+            </th>
+            <th></th>
+        </tr>*@
+
+
+    @foreach (var item in Model.Comments)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author.FirstName)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Post.Title)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Body)
+            </td>
+            <td>
+
+                Created:
+
+                @Html.Raw(item.Created.ToString("f"))
+
+            </td>
+            <td>
+                @if (item.Updated != null)
+                {
+                    @Html.Raw("Updated: ")
+
+                    @Html.Raw(item.Updated.Value.ToString("f"))
+                }
+            </td>
+            <td>
+                @if ((ViewContext.HttpContext.User.IsInRole("Admin") || (ViewContext.HttpContext.User.IsInRole("Mod"))))
+                {
+                    @Html.ActionLink("Edit | ", "Edit", "Comments", new { id = item.Id }, null)
+                    @Html.ActionLink("Delete", "Delete", "Comments", new { id = item.Id }, null)
+                }
+            </td>
+        </tr>
+    }
+
+</table>
