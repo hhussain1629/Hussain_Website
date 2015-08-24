@@ -58,7 +58,7 @@ namespace Hussain___Website.Migrations
                 }, "password");
             }
 
-         userId = userManager.FindByEmail("ajensen@coderfoundry").Id;
+            userId = userManager.FindByEmail("ajensen@coderfoundry").Id;
             userManager.AddToRole(userId, "Mod");
 
             if (!context.Users.Any(u => u.Email == "araynor@coderfoundry"))
@@ -75,14 +75,14 @@ namespace Hussain___Website.Migrations
 
             userId = userManager.FindByEmail("araynor@coderfoundry").Id;
             userManager.AddToRole(userId, "Mod");
-        }           
-       
-            //      context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+        }
+
+        //      context.People.AddOrUpdate(
+        //      p => p.FullName,
+        //      new Person { FullName = "Andrew Peters" },
+        //      new Person { FullName = "Brice Lambson" },
+        //      new Person { FullName = "Rowan Miller" }
+        //    );
+        //
     }
 }

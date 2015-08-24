@@ -45,67 +45,55 @@
         @Html.ActionLink("Edit | ", "Edit", new { id = Model.Id });
         @Html.ActionLink("Delete | ", "Delete", new { id = Model.Id });
     }
-        @Html.ActionLink("Add Comment | ", "Create", "Comments", new { id = Model.Id }, null)
-        @Html.ActionLink("Back to Blog List", "Index")
-    
+    @Html.ActionLink("Add Comment | ", "Create", "Comments", new { id = Model.Id }, null)
+    @Html.ActionLink("Back to Blog List", "Index")
+
 </p>
 <h3>Comments</h3>
-<table class="table" style="color: white;">
-    @*@<tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Author.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Post.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Body)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Created)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Updated)
-            </th>
-            <th></th>
-        </tr>*@
 
-
+<ul class="pagination1" style="color: white;">
     @foreach (var item in Model.Comments)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author.FirstName)
-            </td>
+        <li>
+            <span>
+                By @Html.DisplayFor(modelItem => item.Author.DisplayName) &nbsp;&nbsp;&nbsp;
+            </span>
             @*<td>
                     @Html.DisplayFor(modelItem => item.Post.Title)
                 </td>*@
-            <td>
+            <span>
                 @Html.DisplayFor(modelItem => item.Body)
-            </td>
-            <td>
-
+            </span>
+            <span>
+                <br />
+                &nbsp;&nbsp;&nbsp;
                 Created:
 
-                @Html.Raw(item.Created.ToString("f"))
+                @Html.Raw(item.Created.ToString("f")) &nbsp;&nbsp;&nbsp;
 
-            </td>
-            <td>
+            </span>
+            <span>
                 @if (item.Updated != null)
                 {
                     @Html.Raw("Updated: ")
 
-                    @Html.Raw(item.Updated.Value.ToString("f"))
+                    @Html.Raw(item.Updated.Value.ToString("f") + " ")
                 }
-            </td>
-            <td>
+            </span>
+            <span>
                 @if ((ViewContext.HttpContext.User.IsInRole("Admin") || (ViewContext.HttpContext.User.IsInRole("Mod"))))
                 {
                     @Html.ActionLink("Edit | ", "Edit", "Comments", new { id = item.Id }, null)
                     @Html.ActionLink("Delete", "Delete", "Comments", new { id = item.Id }, null)
                 }
-            </td>
-        </tr>
+            </span>
+            <br /><br />
+        </li>
     }
 
-</table>
+</ul>
+
+
+
+
+

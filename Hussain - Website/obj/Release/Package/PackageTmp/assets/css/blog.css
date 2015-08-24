@@ -4,6 +4,10 @@
      margin-right: auto; 
    }
 
+li {
+    list-style-type: none;
+}
+
 .blogentry {
     display:block;
     border-style: ridge;

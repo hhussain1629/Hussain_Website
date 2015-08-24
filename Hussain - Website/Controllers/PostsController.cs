@@ -22,7 +22,7 @@ namespace Hussain___Website.Controllers
         // GET: Posts
         public ActionResult Index(int? page)
         {
-            int pageSize = 100;
+            int pageSize = 10;
             int pageNumber = (page ?? 1);
             IList<Post> p = db.Posts.ToList();
             return View(p.ToPagedList(pageNumber, pageSize));
@@ -32,14 +32,14 @@ namespace Hussain___Website.Controllers
         public ActionResult Index(string searchStr, int? page)
         {
             var result = db.Posts.Where(p => p.Body.Contains(searchStr)).Union(db.Posts.Where(p => p.Title.Contains(searchStr)).Union(db.Posts.Where(p => p.Comments.Any(c => c.Body.Contains(searchStr)))));
-            int itemsPerPage = 100;
+            int itemsPerPage = 10;
             int pageNumber = page ?? 1;
             IList<Post> plist = result.ToList();
             return View(plist.ToPagedList(pageNumber, itemsPerPage));
         }
 
         // GET: Posts/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, int? page)
         {
             if (id == null)
             {
@@ -50,8 +50,8 @@ namespace Hussain___Website.Controllers
             {
                 return HttpNotFound();
             }
-            var comments = db.Comments.Where(c => c.PostId == id);
-            post.Comments = comments.ToList();
+            var comments = db.Comments.Where(c => c.PostId == id).ToList();
+            post.Comments = comments;
             return View(post);
         }
         

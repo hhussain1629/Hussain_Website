@@ -1,10 +1,12 @@
-﻿@model IEnumerable<Hussain___Website.Models.Post>
-
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<Hussain___Website.Models.Post>
+ 
 @{
     ViewBag.Title = "Index";
 }
-@using PagedList.Mvc;
 
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
 
 <br /><br /><br />
 @if (ViewContext.HttpContext.User.IsInRole("Admin"))
@@ -86,8 +88,8 @@
     </div>
 }
 
-@*<div>
-        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
-    </div>*@
+<div>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
 
