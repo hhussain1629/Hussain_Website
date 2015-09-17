@@ -87,7 +87,8 @@ namespace Hussain___Website.Controllers
                     fileName.Save("~/assets/img/blog/"+fileUpload.FileName);
                     post.MediaURL = "~/assets/img/blog/" + fileUpload.FileName;
                 }
-                post.CreationDate = DateTime.Now;
+                var cDate = DateTimeOffset.UtcNow;
+                post.CreationDate = cDate.ToLocalTime();
                 db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");

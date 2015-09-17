@@ -50,7 +50,7 @@
                     </p>
                     <p class="datestamp">
                         <span> Created: </span>
-                        @Html.Raw(item.CreationDate.ToString("f"))
+                        @Html.Raw(item.CreationDate.ToLocalTime().ToString("f"))
                         @*@Html.DisplayFor(modelItem => item.CreationDate)*@
                         <br />
                         @if (item.UpdatedDate != null)
