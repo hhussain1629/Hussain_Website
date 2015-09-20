@@ -1,0 +1,154 @@
+﻿@model IEnumerable<Hussain___Website.Models.Post>
+
+@using System.Web.Mvc;
+@using System.Globalization;
+@using Microsoft.AspNet.Identity;
+
+
+<br /><br />
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="wrapper">
+    <!-- main navigation -->
+    @*<nav class="navbar navbar-default navbar-fixed-top" id="main-nav" role="navigation">
+            <div class="container">
+                <!-- brand and toggle -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-nav-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- navigation links -->
+                <div class="collapse navbar-collapse main-nav-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="~/Home/Index/#header">HOME</a></li>
+                        <li><a href="~/Home/Index/#about-me">ABOUT</a></li>
+                        <li><a href="~/Home/Index/#resume">RESUME</a></li>
+                        <li><a href="~/Home/Index/#projects">PORTFOLIO</a></li>
+                        <li><a href="~/Home/Index/#js-exercises">JS EXERCISES</a></li>
+                        <li><a href="~/Home/Index/#contacts">CONTACT</a></li>
+                        <li><a href="~/Posts/Index">BLOG</a></li>
+                        <li><a href="#other">OTHER</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>*@
+</div>
+<h2>My Immersion in Coding</h2>
+
+<p>
+    @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+</p>
+
+
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Slug)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Body)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MediaURL)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.Raw(item.CreationDate.ToString("f"))
+                @*@Html.DisplayFor(modelItem => item.CreationDate)*@
+            </td>
+            <td>
+                @if (item.UpdatedDate != null)
+                {
+                    @Html.Raw(item.UpdatedDate.Value.ToString("f"))
+                }
+                @*@Html.DisplayFor(modelItem => item.UpdatedDate)*@
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Title)*@
+                @Html.ActionLink(item.Title, "Details", new { id = item.Id })
+
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Slug)*@
+                <div id="wrapper">
+                    @if (Server.HtmlDecode(item.Body).Length > 150)
+                    {
+                        @Html.Raw(Server.HtmlDecode(item.Body).Substring(0, 150) + "...");
+                        @Html.ActionLink("Read more", "Details", new { id = item.Id });
+                    }
+                    else
+                    {
+                        @Html.Raw(Server.HtmlDecode(item.Body));
+                    }
+                </div>
+            </td>
+            <td>
+                @*<div id="wrapper">
+                        @Html.Raw(Server.HtmlDecode(item.Body))
+                    </div>*@
+            </td>
+            <td>
+                @if (item.MediaURL != null)
+                {
+                    <img src="/@Html.DisplayFor(modelItem => item.MediaURL)" />
+                }
+
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>*@
+        </tr>
+        }
+
+    </table>
+</div>
+
+@* JS Scripts*@
+
+
+@*<script type="text/javascript" src="~/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/modernizr.js"></script>
+    <script type="text/javascript" src="~/assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+    <script type="text/javascript" src="~/assets/js/jquery.localscroll-1.2.7-min.js"></script>*@
+
+@*@section scripts {
+        <script>
+            $(document).ready(function () {
+                $("#wrapper").dotdotdot({
+                    //	configuration goes here
+                    //elipsis: '...',
+                    //wrap: 'word'
+                });
+            });
+        </script>
+    }*@

@@ -215,6 +215,9 @@
     <Content Include="assets\ico\favicon.png" />
     <Content Include="assets\img\AboutPic1.png" />
     <Content Include="assets\img\hero-bg.png" />
+    <Content Include="assets\img\IMG_8174.png" />
+    <Content Include="assets\img\IMG_8174.tif" />
+    <Content Include="assets\img\professionalphoto1.png" />
     <Content Include="assets\img\profile-picture.png" />
     <Content Include="assets\img\project-bg.png" />
     <Content Include="assets\img\projects\big-thing-landing-page.png" />
