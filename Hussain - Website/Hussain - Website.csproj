@@ -215,10 +215,13 @@
     <Content Include="assets\ico\favicon.png" />
     <Content Include="assets\img\AboutPic1.png" />
     <Content Include="assets\img\hero-bg.png" />
+    <Content Include="assets\img\Holden-ovalcrop-small.png" />
     <Content Include="assets\img\profile-picture.png" />
     <Content Include="assets\img\project-bg.png" />
     <Content Include="assets\img\projects\big-thing-landing-page.png" />
     <Content Include="assets\img\projects\tiick-tock-coming-soon-page.png" />
+    <Content Include="assets\img\realGK-small.png" />
+    <Content Include="assets\img\realGK.png" />
     <Content Include="assets\img\skills.png" />
     <Content Include="assets\img\vertical-line.png" />
     <Content Include="assets\js\bootstrap.min.js" />

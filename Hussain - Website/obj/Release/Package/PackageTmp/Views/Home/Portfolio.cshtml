@@ -38,18 +38,62 @@
     <br />
     <br />
     <br />
+    <br />
 
     <h3 class="heading">MVC/Web API Projects</h3>
-
+    <br />
+    <br />
     <!--Place links followed by the modal code w/HTML/JS/JQ code here.-->
-    
+
     <div style="padding-left:120px">
-        <table style="width: 50%; vertical-align:top; margin: auto;">
-            <tr>
-                <td><a href="http://bugstalker.azurewebsites.net/" class="btn" target="_blank" style="background-color:#bc341b; color:white"><b>Bug Stalker</b></a></td>
-                <td><a href="http://hussaincarfinder.azurewebsites.net/" class="btn" target="_blank" style="background-color:#bc341b; color:white"><b>Auto Finder</b></a></td>
-            </tr>
-        </table>
+        <div class="row">
+            <div class="col-xs-1">
+            </div>
+            <div class="col-xs-4" style="text-align:center">
+                <a href="http://bugstalker.azurewebsites.net/" target="_blank">
+                    @*<img class="mproject" src="~/assets/img/realGK-small.png"  width="349" height="259"/>*@
+                    <img class="mproject img-responsive img-circle" src="~/assets/img/realGK.png" alt="" width="300" height="280">
+                </a>
+                <span class="mprojlabel">
+                    @*<br />*@
+                    Bug Stalker
+                </span>
+            </div>
+            <div class="col-xs-4" style="text-align:center">
+                <a href="http://hussaincarfinder.azurewebsites.net/" class="btn" target="_blank">
+                    <img class="mproject img-responsive img-circle" src="~/assets/img/Holden-ovalcrop-small.png" width="400" height="400" />
+                </a>
+                <span class="mprojlabel">
+                    @*<br />
+                    <br />*@
+                    Auto Finder
+                </span>
+            </div>
+            <div class="col-xs-3">
+            </div>
+        </div>
+        @*<div class="row">
+            <div class="col-md-offset-2 col-md-4">
+                <b class="mprojlabel">
+                   Stalker
+                </b>
+            </div>
+            <div class="col-md-4">
+                <b class="mprojlabel">
+                    Auto Finder
+                </b>
+            </div>
+        </div>*@
+        <style>
+            .mproject:hover {
+                opacity: 0.7;
+            }
+
+            .mprojlabel {
+                color: white;
+                font-size: x-large;
+            }
+        </style>
     </div>
 
 
