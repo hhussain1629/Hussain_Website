@@ -25,12 +25,12 @@
                     <td><a href="" data-toggle="modal" data-target="#happy" class="btn" style="background-color:#bc341b; color:white"><b>Happy Numbers</b></a></td>
                     <td><a href="" data-toggle="modal" data-target="#arm" class="btn" style="background-color:#bc341b; color:white"><b>Armstrong Numbers</b></a></td>
                 </tr>
-                <tr>
+                @*<tr>
                     <td><a href="" data-toggle="modal" data-target="#find" class="btn" style="background-color:#bc341b; color:white"><b>Find Largest Word</b></a></td>
                     <td><a href="" data-toggle="modal" data-target="#filter" class="btn" style="background-color:#bc341b; color:white"><b>Filter Long Words</b></a></td>
                     <td><a href="" data-toggle="modal" data-target="#wf" class="btn" style="background-color:#bc341b; color:white"><b>Word Frequency</b></a></td>
                     <td><a href="" data-toggle="modal" data-target="#fw" class="btn" style="background-color:#bc341b; color:white"><b>Find Words</b></a></td>
-                </tr>
+                </tr>*@
             </table>
         </div>
     </div>
@@ -51,8 +51,7 @@
             </div>
             <div class="col-xs-4" style="text-align:center">
                 <a href="http://bugstalker.azurewebsites.net/" target="_blank">
-                    @*<img class="mproject" src="~/assets/img/realGK-small.png"  width="349" height="259"/>*@
-                    <img class="mproject img-responsive img-circle" src="~/assets/img/realGK.png" alt="" width="300" height="280">
+                    <img class="mproject img-responsive img-circle" src="~/assets/img/realGK.png" alt="Go to the 'Bug Stakler' app." width="300" height="280">
                 </a>
                 <span class="mprojlabel">
                     @*<br />*@
@@ -61,29 +60,36 @@
             </div>
             <div class="col-xs-4" style="text-align:center">
                 <a href="http://hussaincarfinder.azurewebsites.net/" class="btn" target="_blank">
-                    <img class="mproject img-responsive img-circle" src="~/assets/img/Holden-ovalcrop-small.png" width="400" height="400" />
+                    <img class="mproject img-responsive img-circle" src="~/assets/img/Holden-ovalcrop-small.png" alt="Go to the 'Auto Finder' app."width="400" height="400" />
                 </a>
                 <span class="mprojlabel">
                     @*<br />
-                    <br />*@
+                        <br />*@
                     Auto Finder
                 </span>
             </div>
             <div class="col-xs-3">
             </div>
         </div>
-        @*<div class="row">
-            <div class="col-md-offset-2 col-md-4">
-                <b class="mprojlabel">
-                   Stalker
-                </b>
+        <br /><br />
+        <div style="padding-left:120px">
+            <div class="row">
+                <div class="col-xs-2">
+                </div>
+                <div class="col-xs-4" style="text-align:center">
+                    <a href="http://budgetmaster1.azurewebsites.net/" target="_blank">
+                        <img class="mproject img-circle" src="~/assets/img/BMIcon.png" alt="Go to the 'Budget Master' app." width="310" height="225">
+                    </a>
+                    <span class="mprojlabel">
+                        @*<br />*@
+                        &nbsp;&nbsp;&nbsp;Budget Master
+                    </span>
+                </div>
             </div>
-            <div class="col-md-4">
-                <b class="mprojlabel">
-                    Auto Finder
-                </b>
-            </div>
-        </div>*@
+        </div>
+
+
+
         <style>
             .mproject:hover {
                 opacity: 0.7;
@@ -918,7 +924,8 @@ $("#op8").text(ops8);
 
 
                 </p>
-                <script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>
+                @*<script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>*@
+                <script src="~/assets/js/jquery-2.2.0.min.js"></script>
                 <script>
                     function findLargestWord() {
                         $(document).ready(function () {
@@ -1025,7 +1032,8 @@ $("#fileinput9").hide();
 
                 </p>
 
-                <script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>
+                @*<script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>*@
+                <script src="~/assets/js/jquery-2.2.0.min.js"></script>
                 <script>
                     function filterLongWords() {				//Unfinished--continue editing.
                         $(document).ready(function () {
@@ -1151,7 +1159,8 @@ $("#fileinput10").hide();
                 </p>
 
 
-                <script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>
+                @*<script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>*@
+                <script src="~/assets/js/jquery-2.2.0.min.js"></script>
                 <script>
                     function wordFreq() {
                         $(document).ready(function () {
@@ -1328,7 +1337,8 @@ $("#fileinput11").hide();
                 </p>
 
 
-                <script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>
+                @*<script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>*@
+                <script src="~/assets/js/jquery-2.2.0.min.js"></script>
                 <script>
                     function findWord() {
                         $(document).ready(function () {
