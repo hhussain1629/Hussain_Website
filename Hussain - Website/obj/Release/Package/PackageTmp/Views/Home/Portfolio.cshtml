@@ -25,12 +25,12 @@
                     <td><a href="" data-toggle="modal" data-target="#happy" class="btn" style="background-color:#bc341b; color:white"><b>Happy Numbers</b></a></td>
                     <td><a href="" data-toggle="modal" data-target="#arm" class="btn" style="background-color:#bc341b; color:white"><b>Armstrong Numbers</b></a></td>
                 </tr>
-                @*<tr>
+                <tr>
                     <td><a href="" data-toggle="modal" data-target="#find" class="btn" style="background-color:#bc341b; color:white"><b>Find Largest Word</b></a></td>
                     <td><a href="" data-toggle="modal" data-target="#filter" class="btn" style="background-color:#bc341b; color:white"><b>Filter Long Words</b></a></td>
                     <td><a href="" data-toggle="modal" data-target="#wf" class="btn" style="background-color:#bc341b; color:white"><b>Word Frequency</b></a></td>
                     <td><a href="" data-toggle="modal" data-target="#fw" class="btn" style="background-color:#bc341b; color:white"><b>Find Words</b></a></td>
-                </tr>*@
+                </tr>
             </table>
         </div>
     </div>
@@ -60,7 +60,7 @@
             </div>
             <div class="col-xs-4" style="text-align:center">
                 <a href="http://hussaincarfinder.azurewebsites.net/" class="btn" target="_blank">
-                    <img class="mproject img-responsive img-circle" src="~/assets/img/Holden-ovalcrop-small.png" alt="Go to the 'Auto Finder' app."width="400" height="400" />
+                    <img class="mproject img-responsive img-circle" src="~/assets/img/Holden-ovalcrop-small.png" alt="Go to the 'Auto Finder' app." width="400" height="400" />
                 </a>
                 <span class="mprojlabel">
                     @*<br />
@@ -907,10 +907,6 @@ $("#op8").text(ops8);
                 <h1 class="modal-title" id="myModalLabel9">Find Largest Word</h1>
             </div>
             <div class="modal-body col-sm-12">
-                <p>
-                    <button type="button" onclick="findLargestWord()" id="ip9"> Click to begin </button>
-                </p>
-
                 <form>
                     <input type="file" id="fileinput9">
                 </form>
@@ -919,85 +915,65 @@ $("#op8").text(ops8);
                 <p> The largest word in the file is: </p>
 
                 <p id="op9">
-
-
-
-
                 </p>
-                @*<script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>*@
-                <script src="~/assets/js/jquery-2.2.0.min.js"></script>
-                <script>
-                    function findLargestWord() {
-                        $(document).ready(function () {
-                            function readFile(evt) {    		//evt is the 'change' event object in this context
-                                var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
-                                if (f) {
-                                    var r = new FileReader();	//FileReader object
 
-                                    //Defining the function it is executed once .readAsText() calls it after that has finish executing
-                                    r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
-                                        alert(r.result);
-                                        var filetext = r.result;
-                                        var wordarray = filetext.split(/\W/);
-                                        var largestword = "";
-                                        for (var index in wordarray) {
-                                            word = wordarray[index];
-                                            if (word.length > largestword.length)
-                                                largestword = word;
-                                        }
-                                        $("#op9").text(largestword);
+
+                <script>
+                    $(document).ready(function () {
+                        function readFile(evt) {    		//evt is the 'change' event object in this context.
+                            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case is the files.
+                            if (f) {
+                                var r = new FileReader();	//FileReader object
+                                //Defining the function, it is executed once .readAsText() calls it after that has finished executing.
+                                r.onload = function (e) {		//Once the FileReader has finished reading via r.readAsText(f)
+                                    alert(r.result);
+                                    var filetext = r.result;
+                                    var wordarray = filetext.split(/\W/);
+                                    var largestword = "";
+                                    for (var index in wordarray) {
+                                        word = wordarray[index];
+                                        if (word.length > largestword.length)
+                                            largestword = word;
                                     }
-                                    //Reads the file as text and then calls the function the onload is linked to
-                                    r.readAsText(f);
+                                    $("#op9").text(largestword);
                                 }
-                                else
-                                    alert("Failed to load file");
+                                //Reads the file as text and then calls the function to which the onload is linked
+                                r.readAsText(f);
                             }
-                            function display9() {
-                                $("#fileinput9").show("slow");
-                                $("#ip9").hide();
-                            }
-                            $("#ip9").click(display9());
-                            $("#fileinput9").change(readFile);
-                        })
-                    }
-                    $("#fileinput9").hide();
+                            else
+                                alert("Failed to load file");
+                        }
+                        $("#fileinput9").change(readFile);
+                    })
                 </script>
+
                 <pre class="brush: js text">
-function findLargestWord() {
-    $(document).ready(function () {
-        function readFile(evt) {    		//evt is the 'change' event object in this context
-            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
-            if (f) {
-                var r = new FileReader();	//FileReader object
-                //Defining the function it is executed once .readAsText() calls it after that has finish executing
-                r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
-                    alert(r.result);
-                    var filetext = r.result;
-                    var wordarray = filetext.split(/\W/);
-                    var largestword = "";
-                    for (var index in wordarray) {
-                        word = wordarray[index];
-                        if (word.length > largestword.length)
-                            largestword = word;
-                    }
-                    $("#op9").text(largestword);
-                }
-                //Reads the file as text and then calls the function the onload is linked to
-                r.readAsText(f);
-            }
-            else
-                alert("Failed to load file");
-        }
-        function display9() {
-            $("#fileinput9").show("slow");
-            $("#ip9").hide();
-        }
-        $("#ip9").click(display9());
-        $("#fileinput9").change(readFile);
-    })
-}
-$("#fileinput9").hide();
+                    $(document).ready(function () {
+                        function readFile(evt) {    		//evt is the 'change' event object in this context.
+                            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case is the files.
+                            if (f) {
+                                var r = new FileReader();	//FileReader object
+                                //Defining the function, it is executed once .readAsText() calls it after that has finished executing.
+                                r.onload = function (e) {		//Once the FileReader has finished reading via r.readAsText(f)
+                                    alert(r.result);
+                                    var filetext = r.result;
+                                    var wordarray = filetext.split(/\W/);
+                                    var largestword = "";
+                                    for (var index in wordarray) {
+                                        word = wordarray[index];
+                                        if (word.length > largestword.length)
+                                            largestword = word;
+                                    }
+                                    $("#op9").text(largestword);
+                                }
+                                //Reads the file as text and then calls the function to which the onload is linked
+                                r.readAsText(f);
+                            }
+                            else
+                                alert("Failed to load file");
+                        }
+                        $("#fileinput9").change(readFile);
+                    })
                                 </pre>
 
             </div>
@@ -1015,117 +991,93 @@ $("#fileinput9").hide();
                 <h1 class="modal-title" id="myModalLabel10">Filter Long Words</h1>
             </div>
             <div class="modal-body col-sm-12">
-                <p>
-                    <button type="button" onclick="filterLongWords()" id="ip10"> Click to begin </button>
-                </p>
-
-
                 <form>
                     <input type="file" id="fileinput10">
                 </form>
 
                 <p id="op10">
-
                 </p>
 
                 <p id="op10b" style="white-space: pre-line">
-
                 </p>
 
-                @*<script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>*@
-                <script src="~/assets/js/jquery-2.2.0.min.js"></script>
+
                 <script>
-                    function filterLongWords() {				//Unfinished--continue editing.
-                        $(document).ready(function () {
-                            function readFile(evt) {    		//evt is the 'change' event object in this context
-                                var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
-                                if (f) {
-                                    var r = new FileReader();	//FileReader object
-                                    //Defining the function it, is executed once .readAsText() calls it after that has finish executing
-                                    r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
-                                        alert(r.result);
-                                        var filetext = r.result;
-                                        var wordarray = filetext.split(/\W/);
-                                        var minlen = "";
-                                        var flag = false;
-                                        while (isNaN(minlen) || (minlen < 1) || (minlen != Math.floor(minlen))) {
-                                            if (flag)
-                                                alert("The input is invalid. Please enter a positive integer only.");
-                                            minlen = prompt("Please enter the minimum word length sought.");
-                                            flag = true;
-                                        }
-                                        var filteredwords = [];
-                                        for (var index in wordarray) {
-                                            word = wordarray[index];
-                                            if (word.length >= minlen)
-                                                filteredwords.push(" " + word);
-                                        }
-                                        var ops10 = "The words in the file at least " + String(minlen) + " characters in length are the following.";
-                                        $("#op10").text(ops10);
-                                        $("#op10b").text(filteredwords);
+                    $(document).ready(function () {
+                        function readFile(evt) {    		//evt is the 'change' event object in this context.
+                            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case is the files.
+                            if (f) {
+                                var r = new FileReader();	//FileReader object
+                                //Defining the function it, is executed once .readAsText() calls it after that has finished executing.
+                                r.onload = function (e) {		//Once the FileReader has finished reading via r.readAsText(f)
+                                    alert(r.result);
+                                    var filetext = r.result;
+                                    var wordarray = filetext.split(/\W/);
+                                    var minlen = "";
+                                    var flag = false;
+                                    while (isNaN(minlen) || (minlen < 1) || (minlen != Math.floor(minlen))) {
+                                        if (flag)
+                                            alert("The input is invalid. Please enter a positive integer only.");
+                                        minlen = prompt("Please enter the minimum word length sought.");
+                                        flag = true;
                                     }
-                                    //Reads the file as text and then calls the function the onload is linked to
-                                    r.readAsText(f);
+                                    var filteredwords = [];
+                                    for (var index in wordarray) {
+                                        word = wordarray[index];
+                                        if (word.length >= minlen)
+                                            filteredwords.push(" " + word);
+                                    }
+                                    var ops10 = "The words in the file at least " + String(minlen) + " characters in length are the following.";
+                                    $("#op10").text(ops10);
+                                    $("#op10b").text(filteredwords);
                                 }
-                                else
-                                    alert("Failed to load file");
+                                //Reads the file as text and then calls the function the to which the onload is linked
+                                r.readAsText(f);
                             }
-                            function display10() {
-                                $("#fileinput10").show("slow");
-                                $("#ip10").hide();
-                            }
-                            $("#ip10").click(display10());
-                            $("#fileinput10").change(readFile);
-                        })
-                    }
-                    $("#fileinput10").hide();
+                            else
+                                alert("Failed to load file");
+                        }
+                        $("#fileinput10").change(readFile);
+                    })
                 </script>
 
                 <pre class="brush: js text">
-function filterLongWords() {				//Unfinished--continue editing.
-    $(document).ready(function () {
-        function readFile(evt) {    		//evt is the 'change' event object in this context
-            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
-            if (f) {
-                var r = new FileReader();	//FileReader object
-                //Defining the function it, is executed once .readAsText() calls it after that has finish executing
-                r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
-                    alert(r.result);
-                    var filetext = r.result;
-                    var wordarray = filetext.split(/\W/);
-                    var minlen = "";
-                    var flag = false;
-                    while (isNaN(minlen) || (minlen < 1) || (minlen != Math.floor(minlen))) {
-                        if (flag)
-                            alert("The input is invalid. Please enter a positive integer only.");
-                        minlen = prompt("Please enter the minimum word length sought.");
-                        flag = true;
-                    }
-                    var filteredwords = [];
-                    for (var index in wordarray) {
-                        word = wordarray[index];
-                        if (word.length >= minlen)
-                            filteredwords.push(" " + word);
-                    }
-                    var ops10 = "The words in the file at least " + String(minlen) + " characters in length are the following.";
-                    $("#op10").text(ops10);
-                    $("#op10b").text(filteredwords);
-                }
-                //Reads the file as text and then calls the function the onload is linked to
-                r.readAsText(f);
-            }
-            else
-                alert("Failed to load file");
-        }
-        function display10() {
-            $("#fileinput10").show("slow");
-            $("#ip10").hide();
-        }
-        $("#ip10").click(display10());
-        $("#fileinput10").change(readFile);
-    })
-}
-$("#fileinput10").hide();
+                    $(document).ready(function () {
+                        function readFile(evt) {    		//evt is the 'change' event object in this context.
+                            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case is the files.
+                            if (f) {
+                                var r = new FileReader();	//FileReader object
+                                //Defining the function it, is executed once .readAsText() calls it after that has finished executing.
+                                r.onload = function (e) {		//Once the FileReader has finished reading via r.readAsText(f)
+                                    alert(r.result);
+                                    var filetext = r.result;
+                                    var wordarray = filetext.split(/\W/);
+                                    var minlen = "";
+                                    var flag = false;
+                                    while (isNaN(minlen) || (minlen < 1) || (minlen != Math.floor(minlen))) {
+                                        if (flag)
+                                            alert("The input is invalid. Please enter a positive integer only.");
+                                        minlen = prompt("Please enter the minimum word length sought.");
+                                        flag = true;
+                                    }
+                                    var filteredwords = [];
+                                    for (var index in wordarray) {
+                                        word = wordarray[index];
+                                        if (word.length >= minlen)
+                                            filteredwords.push(" " + word);
+                                    }
+                                    var ops10 = "The words in the file at least " + String(minlen) + " characters in length are the following.";
+                                    $("#op10").text(ops10);
+                                    $("#op10b").text(filteredwords);
+                                }
+                                //Reads the file as text and then calls the function the to which the onload is linked
+                                r.readAsText(f);
+                            }
+                            else
+                                alert("Failed to load file");
+                        }
+                        $("#fileinput10").change(readFile);
+                    })
                                 </pre>
             </div>
             <div class="modal-footer no-margin">
@@ -1142,167 +1094,139 @@ $("#fileinput10").hide();
                 <h1 class="modal-title" id="myModalLabel11">Word Frequency</h1>
             </div>
             <div class="modal-body col-sm-12">
-                <p>
-                    <button type="button" onclick="wordFreq()" id="ip11"> Click to begin </button>
-                </p>
-
                 <form>
                     <input type="file" id="fileinput11">
                 </form>
 
-
-
-                <p></p>
-
                 <p id="op11">
-
                 </p>
 
-
-                @*<script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>*@
-                <script src="~/assets/js/jquery-2.2.0.min.js"></script>
                 <script>
-                    function wordFreq() {
-                        $(document).ready(function () {
-                            function readFile(evt) {    		//evt is the 'change' event object in this context
-                                var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
-                                if (f) {
-                                    var r = new FileReader();	//FileReader object
-                                    //Defining the function it, is executed once .readAsText() calls it after that has finish executing
-                                    r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
-                                        alert(r.result);
-                                        var filetext = r.result;
-                                        var wordarray = filetext.split(/\W/);
-                                        var filewords = [];
-                                        var wordcount = [];
-                                        for (var index in wordarray) {
-                                            var word = wordarray[index].toUpperCase();
-                                            var present = false;
-                                            for (var i = 0; i < filewords.length; i++) {
-                                                if (word.length > 0) {
-                                                    if (word == filewords[i]) {
-                                                        present = true;
-                                                        wordcount[i]++;
-                                                        break;
-                                                    }
-                                                }
-                                            }
-                                            if (!present) {
-                                                if (word.length > 0) {
-                                                    filewords.push(word);
-                                                    wordcount.push(1);
+                    $(document).ready(function () {
+                        function readFile(evt) {    		//evt is the 'change' event object in this context
+                            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case is the files.
+                            if (f) {
+                                var r = new FileReader();	//FileReader object
+                                //Defining the function it, is executed once .readAsText() calls it after that has finished executing.
+                                r.onload = function (e) {		//Once the FileReader has finished reading via r.readAsText(f)
+                                    alert(r.result);
+                                    var filetext = r.result;
+                                    var wordarray = filetext.split(/\W/);
+                                    var filewords = [];
+                                    var wordcount = [];
+                                    for (var index in wordarray) {
+                                        var word = wordarray[index].toUpperCase();
+                                        var present = false;
+                                        for (var i = 0; i < filewords.length; i++) {
+                                            if (word.length > 0) {
+                                                if (word == filewords[i]) {
+                                                    present = true;
+                                                    wordcount[i]++;
+                                                    break;
                                                 }
                                             }
                                         }
-                                        var switched;
-                                        do {
-                                            switched = false;
-                                            for (i2 = 0; i2 < wordcount.length - 1; i2++) {
-                                                if (wordcount[i2] > wordcount[i2 + 1]) {
-                                                    var wctemp = wordcount[i2];
-                                                    wordcount[i2] = wordcount[i2 + 1];
-                                                    wordcount[i2 + 1] = wctemp;
-                                                    var fwtemp = filewords[i2];
-                                                    filewords[i2] = filewords[i2 + 1];
-                                                    filewords[i2 + 1] = fwtemp;
-                                                    switched = true;
-                                                }
+                                        if (!present) {
+                                            if (word.length > 0) {
+                                                filewords.push(word);
+                                                wordcount.push(1);
                                             }
-                                        } while (switched);
-                                        var msg = "The words in the file and their frequencies are as follows: <br><br>";
-                                        for (var i4 = 0; i4 < wordcount.length; i4++) {
-                                            tword = wordcount[i4] == 1 ? " time" : " times";
-                                            msg += "The word '" + filewords[i4] + "' appears " + wordcount[i4] + tword + ". <br>";
                                         }
-                                        document.getElementById("op11").innerHTML = msg;
                                     }
-                                    //Reads the file as text and then calls the function the onload is linked to
-                                    r.readAsText(f);
+                                    var switched;
+                                    do {
+                                        switched = false;
+                                        for (i2 = 0; i2 < wordcount.length - 1; i2++) {
+                                            if (wordcount[i2] > wordcount[i2 + 1]) {
+                                                var wctemp = wordcount[i2];
+                                                wordcount[i2] = wordcount[i2 + 1];
+                                                wordcount[i2 + 1] = wctemp;
+                                                var fwtemp = filewords[i2];
+                                                filewords[i2] = filewords[i2 + 1];
+                                                filewords[i2 + 1] = fwtemp;
+                                                switched = true;
+                                            }
+                                        }
+                                    } while (switched);
+                                    var msg = "The words in the file and their frequencies are as follows: <br><br>";
+                                    for (var i4 = 0; i4 < wordcount.length; i4++) {
+                                        tword = wordcount[i4] == 1 ? " time" : " times";
+                                        msg += "The word '" + filewords[i4] + "' appears " + wordcount[i4] + tword + ". <br>";
+                                    }
+                                    document.getElementById("op11").innerHTML = msg;
                                 }
-                                else
-                                    alert("Failed to load file");
+                                //Reads the file as text and then calls the function the to which the onload is linked
+                                r.readAsText(f);
                             }
-                            function display11() {
-                                $("#fileinput11").show("slow");
-                                $("#ip11").hide();
-                            }
-                            $("#ip11").click(display11());
-                            $("#fileinput11").change(readFile);
-                        })
-                    }
-                    $("#fileinput11").hide();
+                            else
+                                alert("Failed to load file");
+                        }
+                        $("#fileinput11").change(readFile);
+                    })
                 </script>
 
                 <pre class="brush: js text">
-    function wordFreq() {
-    $(document).ready(function () {
-        function readFile(evt) {    		//evt is the 'change' event object in this context
-            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
-            if (f) {
-                var r = new FileReader();	//FileReader object
-                //Defining the function it, is executed once .readAsText() calls it after that has finish executing
-                r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
-                    alert(r.result);
-                    var filetext = r.result;
-                    var wordarray = filetext.split(/\W/);
-                    var filewords = [];
-                    var wordcount = [];
-                    for (var index in wordarray) {
-                        var word = wordarray[index].toUpperCase();
-                        var present = false;
-                        for (var i = 0; i < filewords.length; i++) {
-                            if (word.length > 0) {
-                                if (word == filewords[i]) {
-                                    present = true;
-                                    wordcount[i]++;
-                                    break;
+                    $(document).ready(function () {
+                        function readFile(evt) {    		//evt is the 'change' event object in this context
+                            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case is the files.
+                            if (f) {
+                                var r = new FileReader();	//FileReader object
+                                //Defining the function it, is executed once .readAsText() calls it after that has finished executing.
+                                r.onload = function (e) {		//Once the FileReader has finished reading via r.readAsText(f)
+                                    alert(r.result);
+                                    var filetext = r.result;
+                                    var wordarray = filetext.split(/\W/);
+                                    var filewords = [];
+                                    var wordcount = [];
+                                    for (var index in wordarray) {
+                                        var word = wordarray[index].toUpperCase();
+                                        var present = false;
+                                        for (var i = 0; i < filewords.length; i++) {
+                                            if (word.length > 0) {
+                                                if (word == filewords[i]) {
+                                                    present = true;
+                                                    wordcount[i]++;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (!present) {
+                                            if (word.length > 0) {
+                                                filewords.push(word);
+                                                wordcount.push(1);
+                                            }
+                                        }
+                                    }
+                                    var switched;
+                                    do {
+                                        switched = false;
+                                        for (i2 = 0; i2 < wordcount.length - 1; i2++) {
+                                            if (wordcount[i2] > wordcount[i2 + 1]) {
+                                                var wctemp = wordcount[i2];
+                                                wordcount[i2] = wordcount[i2 + 1];
+                                                wordcount[i2 + 1] = wctemp;
+                                                var fwtemp = filewords[i2];
+                                                filewords[i2] = filewords[i2 + 1];
+                                                filewords[i2 + 1] = fwtemp;
+                                                switched = true;
+                                            }
+                                        }
+                                    } while (switched);
+                                    var msg = "The words in the file and their frequencies are as follows: <br><br>";
+                                    for (var i4 = 0; i4 < wordcount.length; i4++) {
+                                        tword = wordcount[i4] == 1 ? " time" : " times";
+                                        msg += "The word '" + filewords[i4] + "' appears " + wordcount[i4] + tword + ". <br>";
+                                    }
+                                    document.getElementById("op11").innerHTML = msg;
                                 }
+                                //Reads the file as text and then calls the function the to which the onload is linked
+                                r.readAsText(f);
                             }
+                            else
+                                alert("Failed to load file");
                         }
-                        if (!present) {
-                            if (word.length > 0) {
-                                filewords.push(word);
-                                wordcount.push(1);
-                            }
-                        }
-                    }
-                    var switched;
-                    do {
-                        switched = false;
-                        for (i2 = 0; i2 < wordcount.length - 1; i2++) {
-                            if (wordcount[i2] > wordcount[i2 + 1]) {
-                                var wctemp = wordcount[i2];
-                                wordcount[i2] = wordcount[i2 + 1];
-                                wordcount[i2 + 1] = wctemp;
-                                var fwtemp = filewords[i2];
-                                filewords[i2] = filewords[i2 + 1];
-                                filewords[i2 + 1] = fwtemp;
-                                switched = true;
-                            }
-                        }
-                    } while (switched);
-                    var msg = "The words in the file and their frequencies are as follows: <br><br>";
-                    for (var i4 = 0; i4 < wordcount.length; i4++) {
-                        tword = wordcount[i4] == 1 ? " time" : " times";
-                        msg += "The word '" + filewords[i4] + "' appears " + wordcount[i4] + tword + ". <br>";
-                    }
-                    document.getElementById("op11").innerHTML = msg;
-                }
-                //Reads the file as text and then calls the function the onload is linked to
-                r.readAsText(f);
-            }
-            else
-                alert("Failed to load file");
-        }
-        function display11() {
-            $("#fileinput11").show("slow");
-            $("#ip11").hide();
-        }
-        $("#ip11").click(display11());
-        $("#fileinput11").change(readFile);
-    })
-}
-$("#fileinput11").hide();
+                        $("#fileinput11").change(readFile);
+                    })
                                 </pre>
             </div>
             <div class="modal-footer no-margin">
@@ -1319,110 +1243,81 @@ $("#fileinput11").hide();
                 <h1 class="modal-title" id="myModalLabel12">Find Words</h1>
             </div>
             <div class="modal-body col-sm-12">
-                <p>
-                    <button type="button" onclick="findWord()" id="ip12"> Click to begin </button>
-                </p>
-
-
                 <form>
                     <input type="file" id="fileinput12">
                 </form>
 
-
-
-
-
                 <p id="op12">
-
                 </p>
 
-
-                @*<script type="text/javascript" src="~/assets/js/jquery-1.7.2.min.js"></script>*@
-                <script src="~/assets/js/jquery-2.2.0.min.js"></script>
                 <script>
-                    function findWord() {
-                        $(document).ready(function () {
-                            function readFile(evt) {    		//evt is the 'change' event object in this context
-                                var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
-                                if (f) {
-                                    var r = new FileReader();	//FileReader object
-                                    //Defining the function it, is executed once .readAsText() calls it after that has finish executing
-                                    r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
-                                        alert(r.result);
-                                        var filetext = r.result;
-                                        var wordarray = filetext.split(/\W/);
-                                        var targetword = prompt("Please enter the word you are seeking.");
-                                        targetword = targetword.toUpperCase();
-                                        var freq = 0;
-                                        for (var index in wordarray) {
-                                            word = wordarray[index];
-                                            if (word.toUpperCase() == targetword)
-                                                freq++;
-                                        }
-                                        tword = "times";
-                                        if (freq == 1)
-                                            tword = "time";
-                                        var ops12 = "The word '" + targetword + "' appears " + String(freq) + " " + tword + " in the file."
-                                        $("#op12").text(ops12);
+                    $(document).ready(function () {
+                        function readFile(evt) {    		//evt is the 'change' event object in this context
+                            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case is the files.
+                            if (f) {
+                                var r = new FileReader();	//FileReader object
+                                //Defining the function, it is executed once .readAsText() calls it after that has finished executing.
+                                r.onload = function (e) {		//Once the FileReader has finished reading via r.readAsText(f)
+                                    alert(r.result);
+                                    var filetext = r.result;
+                                    var wordarray = filetext.split(/\W/);
+                                    var targetword = prompt("Please enter the word you are seeking.");
+                                    targetword = targetword.toUpperCase();
+                                    var freq = 0;
+                                    for (var index in wordarray) {
+                                        word = wordarray[index];
+                                        if (word.toUpperCase() == targetword)
+                                            freq++;
                                     }
-                                    //Reads the file as text and then calls the function the onload is linked to
-                                    r.readAsText(f);
+                                    tword = "times";
+                                    if (freq == 1)
+                                        tword = "time";
+                                    var ops12 = "The word '" + targetword + "' appears " + String(freq) + " " + tword + " in the file."
+                                    $("#op12").text(ops12);
                                 }
-                                else
-                                    alert("Failed to load file");
+                                //Reads the file as text and then calls the function to which the onload is linked
+                                r.readAsText(f);
                             }
-                            function display12() {
-                                $("#fileinput12").show("slow");
-                                $("#ip12").hide();
-                            }
-                            $("#ip12").click(display12());
-                            $("#fileinput12").change(readFile);
-                        })
-                    }
-                    $("#fileinput12").hide();
+                            else
+                                alert("Failed to load file");
+                        }
+                        $("#fileinput12").change(readFile);
+                    })
                 </script>
 
                 <pre class="brush: js text">
-function findWord() {
-    $(document).ready(function () {
-        function readFile(evt) {    		//evt is the 'change' event object in this context
-            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case are the files
-            if (f) {
-                var r = new FileReader();	//FileReader object
-                //Defining the function it, is executed once .readAsText() calls it after that has finish executing
-                r.onload = function (e) {		//Once the FileReader has finish reading via r.readAsText(f)
-                    alert(r.result);
-                    var filetext = r.result;
-                    var wordarray = filetext.split(/\W/);
-                    var targetword = prompt("Please enter the word you are seeking.");
-                    targetword = targetword.toUpperCase();
-                    var freq = 0;
-                    for (var index in wordarray) {
-                        word = wordarray[index];
-                        if (word.toUpperCase() == targetword)
-                            freq++;
-                    }
-                    tword = "times";
-                    if (freq == 1)
-                        tword = "time";
-                    var ops12 = "The word '" + targetword + "' appears " + String(freq) + " " + tword + " in the file."
-                    $("#op12").text(ops12);
-                }
-                //Reads the file as text and then calls the function the onload is linked to
-                r.readAsText(f);
-            }
-            else
-                alert("Failed to load file");
-        }
-        function display12() {
-            $("#fileinput12").show("slow");
-            $("#ip12").hide();
-        }
-        $("#ip12").click(display12());
-        $("#fileinput12").change(readFile);
-    })
-}
-$("#fileinput12").hide();
+                    $(document).ready(function () {
+                        function readFile(evt) {    		//evt is the 'change' event object in this context
+                            var f = evt.target.files[0];	//Event object evt has property 'target' and the target in this case is the files.
+                            if (f) {
+                                var r = new FileReader();	//FileReader object
+                                //Defining the function, it is executed once .readAsText() calls it after that has finished executing.
+                                r.onload = function (e) {		//Once the FileReader has finished reading via r.readAsText(f)
+                                    alert(r.result);
+                                    var filetext = r.result;
+                                    var wordarray = filetext.split(/\W/);
+                                    var targetword = prompt("Please enter the word you are seeking.");
+                                    targetword = targetword.toUpperCase();
+                                    var freq = 0;
+                                    for (var index in wordarray) {
+                                        word = wordarray[index];
+                                        if (word.toUpperCase() == targetword)
+                                            freq++;
+                                    }
+                                    tword = "times";
+                                    if (freq == 1)
+                                        tword = "time";
+                                    var ops12 = "The word '" + targetword + "' appears " + String(freq) + " " + tword + " in the file."
+                                    $("#op12").text(ops12);
+                                }
+                                //Reads the file as text and then calls the function to which the onload is linked
+                                r.readAsText(f);
+                            }
+                            else
+                                alert("Failed to load file");
+                        }
+                        $("#fileinput12").change(readFile);
+                    })
                                 </pre>
             </div>
             <div class="modal-footer no-margin">
