@@ -58,3 +58,4 @@ C:\Users\Hammad\documents\visual studio 2013\Projects\Hussain - Website\Hussain 
 C:\Users\Hammad\documents\visual studio 2013\Projects\Hussain - Website\Hussain - Website\obj\Debug\Hussain - Website.dll
 C:\Users\Hammad\documents\visual studio 2013\Projects\Hussain - Website\Hussain - Website\obj\Debug\Hussain - Website.pdb
 C:\Users\Hammad\documents\visual studio 2013\Projects\Hussain - Website\Hussain - Website\obj\Debug\Hussain - Website.csprojResolveAssemblyReference.cache
+C:\Users\Hammad\Documents\Visual Studio 2013\Projects\Hussain - Website\Hussain - Website\obj\Debug\Hussain - Website.csproj.CoreCompileInputs.cache
